@@ -15,7 +15,11 @@ export const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 3,
         alignItems: 'center',
-        minWidth:300
+        minWidth:300,
+        marginTop: 10,
+        marginLeft: 10,
+        marginRight: 10
+
     },
     avatarContainer: {
         marginRight: 16
