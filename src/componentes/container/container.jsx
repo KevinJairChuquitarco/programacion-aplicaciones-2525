@@ -1,8 +1,8 @@
-import { ScrollView } from "react-native";
+import { View } from "react-native";
 import { styles } from "./container.styles";
 
 export const Container = ( { children } ) =>{
-    return <ScrollView style={styles.container}>
+    return <View style={styles.container}>
         { children }
-    </ScrollView>
+    </View>
 }

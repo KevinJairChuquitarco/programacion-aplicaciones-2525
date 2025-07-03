@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { CalculadoraIMC } from "./src/pantallas/calculadoraIMC/calculadoraIMC";
 import { Inicio } from "./src/pantallas/inicio/inicio";
 import { ConsumoAPI } from "./src/pantallas/consumoAPI/consumoAPI";
+import { DetailsApi } from "./src/pantallas/consumoAPI/datailsApi";
 
 //Instanciar el Stack
 const Stack = createStackNavigator();
@@ -24,6 +25,9 @@ export default function App() {
         <Stack.Screen options={{title:"Consumo API"}} 
         name="ConsumoAPI" 
         component={ConsumoAPI} />
+        <Stack.Screen options={{title:"Detalles"}} 
+        name="Datails" 
+        component={DetailsApi} />
       </Stack.Navigator>
     </NavigationContainer>
   );

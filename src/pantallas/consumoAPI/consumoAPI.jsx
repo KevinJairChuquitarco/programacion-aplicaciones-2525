@@ -3,7 +3,7 @@ import { Container } from "../../componentes/container/container";
 import { useState, useEffect } from "react";
 import { ActivityIndicator, FlatList } from "react-native";
 
-export const ConsumoAPI = () => {
+export const ConsumoAPI = ( { navigation } ) => {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -37,6 +37,7 @@ export const ConsumoAPI = () => {
                             <Card url={item.image}
                                 nombre={item.name}
                                 especie={item.species}
+                                alPresionar={()=>navigation.navigate('Datails',{character:item})}
                             />
                         )}
                     />
