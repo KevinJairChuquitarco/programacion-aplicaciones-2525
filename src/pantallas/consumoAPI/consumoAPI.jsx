@@ -1,12 +1,48 @@
 import { Card } from "../../componentes/card/card";
 import { Container } from "../../componentes/container/container";
+import { useState, useEffect } from "react";
+import { ActivityIndicator, FlatList } from "react-native";
 
 export const ConsumoAPI = () => {
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    const getPersonajes = async () => {
+        try {
+            const response = await fetch("https://rickandmortyapi.com/api/character");
+            const json = await response.json();
+            setData(json.results);
+        } catch (error) {
+            console.log("Error: " + error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        getPersonajes();
+    }, [])
+
+
     return <Container>
-        <Card url="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-            nombre="Rick Sanchez"
-            especie="Human"
-        ></Card>
+        <>
+            {
+                loading ? (
+                    <ActivityIndicator />
+                ) : (
+                    <FlatList
+                        data={data}
+                        keyExtractor={({ id }) => id}
+                        renderItem={({ item }) => (
+                            <Card url={item.image}
+                                nombre={item.name}
+                                especie={item.species}
+                            />
+                        )}
+                    />
+                )
+            }
+        </>
     </Container>
 }
 
