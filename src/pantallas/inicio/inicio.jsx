@@ -93,6 +93,31 @@ export const Inicio = ({ navigation }) => {
             </TouchableOpacity>
           </View>
 
+          {/* Card de SQLite */}
+          <View style={styles.appCard}>
+            <View style={styles.appHeader}>
+              <View style={styles.appIcon}>
+                <Text style={styles.appIconText}>🔡</Text>
+              </View>
+              <View style={styles.appInfo}>
+                <Text style={styles.appTitle}>SQLite</Text>
+                <Text style={styles.appSubtitle}>Base de datos</Text>
+              </View>
+            </View>
+            
+            <Text style={styles.appDescription}>
+              Es una aplicación para gestionar las tareas con base a SQLite y usando porps, useSate
+            </Text>
+
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate("Tareas")}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.buttonText}>Ir a Gestión tareas</Text>
+            </TouchableOpacity>
+          </View>
+
 
         </View>
 
