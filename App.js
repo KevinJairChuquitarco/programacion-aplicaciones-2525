@@ -10,6 +10,7 @@ import { DetailsApi } from "./src/pantallas/consumoAPI/datailsApi";
 import { Tarea } from "./src/pantallas/tareas/tareas";
 //Librerías SQLite
 import { SQLiteProvider } from "expo-sqlite";
+import { migrarBaseDatos } from "./src/servicios/database";
 
 //Instanciar el Stack
 const Stack = createStackNavigator();
@@ -17,7 +18,7 @@ const Stack = createStackNavigator();
 export default function App() {
 
   return (
-    <SQLiteProvider databaseName="db.db">
+    <SQLiteProvider databaseName="database.db" onInit={migrarBaseDatos}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen options={{ title: "Inicio" }}

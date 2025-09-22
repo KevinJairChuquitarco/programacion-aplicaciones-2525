@@ -1,12 +1,11 @@
-import React from 'react';
-import { 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  StyleSheet, 
-  ScrollView 
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
 } from "react-native";
-
+import { AppCard } from "../../componentes/appCard/appCard";
 export const Inicio = ({ navigation }) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -27,9 +26,10 @@ export const Inicio = ({ navigation }) => {
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Acerca de mí</Text>
           <Text style={styles.description}>
-            Soy profesor de Desarrollo Web y Móvil en el Instituto Superior Tecnológico 
-            Mayor Pedro Traversari. Me especializo en crear experiencias digitales 
-            innovadoras y formar a la próxima generación de desarrolladores.
+            Soy profesor de Desarrollo Web y Móvil en el Instituto Superior
+            Tecnológico Mayor Pedro Traversari. Me especializo en crear
+            experiencias digitales innovadoras y formar a la próxima generación
+            de desarrolladores.
           </Text>
         </View>
 
@@ -41,84 +41,35 @@ export const Inicio = ({ navigation }) => {
           </Text>
 
           {/* Card de la Calculadora IMC */}
-          <View style={styles.appCard}>
-            <View style={styles.appHeader}>
-              <View style={styles.appIcon}>
-                <Text style={styles.appIconText}>📊</Text>
-              </View>
-              <View style={styles.appInfo}>
-                <Text style={styles.appTitle}>Calculadora IMC</Text>
-                <Text style={styles.appSubtitle}>Herramienta de Salud</Text>
-              </View>
-            </View>
-            
-            <Text style={styles.appDescription}>
-              Una aplicación intuitiva que permite calcular el Índice de Masa Corporal 
-              de manera rápida y precisa. Incluye categorización de resultados y 
-              recomendaciones personalizadas para mantener un estilo de vida saludable.
-            </Text>
+          <AppCard
+            icon="📊"
+            title="Calculadora IMC"
+            subtitle="Herramienta de Salud"
+            description="Una aplicación intuitiva que permite calcular el Índice de Masa Corporal de manera rápida y precisa. Incluye categorización de resultados y recomendaciones personalizadas."
+            buttonText="Ir a Calculadora IMC"
+            onPress={() => navigation.navigate("CalculadoraIMC")}
+          />
 
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.navigate("CalculadoraIMC")}
-              activeOpacity={0.8}
-            >
-              <Text style={styles.buttonText}>Ir a Calculadora IMC</Text>
-            </TouchableOpacity>
-          </View>
           {/* Card de la Consumo API */}
-          <View style={styles.appCard}>
-            <View style={styles.appHeader}>
-              <View style={styles.appIcon}>
-                <Text style={styles.appIconText}>💻</Text>
-              </View>
-              <View style={styles.appInfo}>
-                <Text style={styles.appTitle}>Consumo Api</Text>
-                <Text style={styles.appSubtitle}>Herramienta Informativa</Text>
-              </View>
-            </View>
-            
-            <Text style={styles.appDescription}>
-              Una aplicación intuitiva que permite calcular el Índice de Masa Corporal 
-              de manera rápida y precisa. Incluye categorización de resultados y 
-              recomendaciones personalizadas para mantener un estilo de vida saludable.
-            </Text>
 
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.navigate("ConsumoAPI")}
-              activeOpacity={0.8}
-            >
-              <Text style={styles.buttonText}>Ir a Consumo API</Text>
-            </TouchableOpacity>
-          </View>
-
+          <AppCard
+            icon="💻"
+            title="Consumo Api"
+            subtitle="Herramienta Informativa"
+            description="Aplicación que consume APIs externas para mostrar datos en tiempo real."
+            buttonText="Ir a Consumo API"
+            onPress={() => navigation.navigate("ConsumoAPI")}
+          />
           {/* Card de SQLite */}
-          <View style={styles.appCard}>
-            <View style={styles.appHeader}>
-              <View style={styles.appIcon}>
-                <Text style={styles.appIconText}>🔡</Text>
-              </View>
-              <View style={styles.appInfo}>
-                <Text style={styles.appTitle}>SQLite</Text>
-                <Text style={styles.appSubtitle}>Base de datos</Text>
-              </View>
-            </View>
-            
-            <Text style={styles.appDescription}>
-              Es una aplicación para gestionar las tareas con base a SQLite y usando porps, useSate
-            </Text>
 
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.navigate("Tareas")}
-              activeOpacity={0.8}
-            >
-              <Text style={styles.buttonText}>Ir a Gestión tareas</Text>
-            </TouchableOpacity>
-          </View>
-
-
+          <AppCard
+            icon="🔡"
+            title="SQLite"
+            subtitle="Base de datos"
+            description="Aplicación para gestionar las tareas usando SQLite, props y useState."
+            buttonText="Ir a Gestión tareas"
+            onPress={() => navigation.navigate("Tareas")}
+          />
         </View>
 
         {/* Footer */}
@@ -138,10 +89,10 @@ export const Inicio = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: "#f8fafc",
   },
   header: {
-    backgroundColor: '#667eea',
+    backgroundColor: "#667eea",
     paddingTop: 60,
     paddingBottom: 40,
     paddingHorizontal: 20,
@@ -149,48 +100,48 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 30,
   },
   profileSection: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   avatarContainer: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    justifyContent: "center",
+    alignItems: "center",
     marginBottom: 15,
     borderWidth: 3,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: "rgba(255, 255, 255, 0.3)",
   },
   avatarText: {
     fontSize: 28,
-    fontWeight: 'bold',
-    color: 'white',
+    fontWeight: "bold",
+    color: "white",
   },
   name: {
     fontSize: 28,
-    fontWeight: 'bold',
-    color: 'white',
+    fontWeight: "bold",
+    color: "white",
     marginBottom: 5,
   },
   title: {
     fontSize: 18,
-    color: 'rgba(255, 255, 255, 0.9)',
+    color: "rgba(255, 255, 255, 0.9)",
     marginBottom: 3,
   },
   subtitle: {
     fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: "rgba(255, 255, 255, 0.8)",
   },
   content: {
     padding: 20,
   },
   card: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 15,
     padding: 20,
     marginBottom: 20,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -201,39 +152,39 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 22,
-    fontWeight: 'bold',
-    color: '#2d3748',
+    fontWeight: "bold",
+    color: "#2d3748",
     marginBottom: 15,
   },
   description: {
     fontSize: 16,
     lineHeight: 24,
-    color: '#4a5568',
+    color: "#4a5568",
   },
   subtitle2: {
     fontSize: 16,
-    color: '#718096',
+    color: "#718096",
     marginBottom: 20,
   },
   appCard: {
-    backgroundColor: '#f7fafc',
+    backgroundColor: "#f7fafc",
     borderRadius: 12,
     padding: 20,
     borderWidth: 1,
-    borderColor: '#e2e8f0',
+    borderColor: "#e2e8f0",
   },
   appHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 15,
   },
   appIcon: {
     width: 50,
     height: 50,
     borderRadius: 12,
-    backgroundColor: '#667eea',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#667eea",
+    justifyContent: "center",
+    alignItems: "center",
     marginRight: 15,
   },
   appIconText: {
@@ -244,58 +195,58 @@ const styles = StyleSheet.create({
   },
   appTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#2d3748',
+    fontWeight: "bold",
+    color: "#2d3748",
     marginBottom: 2,
   },
   appSubtitle: {
     fontSize: 14,
-    color: '#718096',
+    color: "#718096",
   },
   appDescription: {
     fontSize: 15,
     lineHeight: 22,
-    color: '#4a5568',
+    color: "#4a5568",
     marginBottom: 20,
   },
   button: {
     borderRadius: 12,
-    padding:15,
-    overflow: 'hidden',
-    backgroundColor: '#667eea',
+    padding: 15,
+    overflow: "hidden",
+    backgroundColor: "#667eea",
   },
   buttonGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 15,
     paddingHorizontal: 20,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
     marginRight: 8,
   },
   buttonIcon: {
-    color: 'white',
+    color: "white",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   footer: {
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 30,
   },
   footerText: {
     fontSize: 14,
-    fontWeight: '600',
-    color: '#4a5568',
-    textAlign: 'center',
+    fontWeight: "600",
+    color: "#4a5568",
+    textAlign: "center",
     marginBottom: 5,
   },
   footerSubtext: {
     fontSize: 12,
-    color: '#718096',
-    textAlign: 'center',
+    color: "#718096",
+    textAlign: "center",
   },
 });
